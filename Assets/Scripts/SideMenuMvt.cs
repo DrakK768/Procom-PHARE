@@ -62,4 +62,8 @@ public class SideMenuMvt : MonoBehaviour
         mvt_hidden = true;
         mvt_active = false;
     }
+
+    public void EnableDisable(GameObject target) {
+        target.SetActive(!target.activeInHierarchy);
+    }
 }
