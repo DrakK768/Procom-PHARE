@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 public class ImageTracker : MonoBehaviour
 {
     [SerializeField] GameObject prefab;
+    [SerializeField] Vector3 offsetPrefabPosition = Vector3.zero;
+    [SerializeField] Vector3 offsetPrefabRotation = Vector3.zero;
+
+    [SerializeField] List<Slider> sliders = new List<Slider>();
 
     ARTrackedImageManager trackedImageManager;
     Dictionary<ARTrackedImage, GameObject> instances;
@@ -33,13 +38,15 @@ public class ImageTracker : MonoBehaviour
         foreach (var trackedImage in args.added)
         {
             PlacePrefab(trackedImage);
-            CanvasManager.current.SetText($"Added {args.added.Count} elements\nPrefab pos: {instances[trackedImage].transform.position}\nImg pos: {trackedImage.transform.position}");
+            CanvasManager.current.SetText($"Added {args.added.Count} elements\nPrefab pos: {instances[trackedImage].transform.position}\nImg pos: {trackedImage.transform.position}\n" +
+                $"Offset pos:{offsetPrefabPosition}\nOffset rot: {offsetPrefabRotation}");
         }
         
         foreach (var trackedImage in args.updated)
         {
             UpdatePrefabPosition(trackedImage);
-            CanvasManager.current.SetText($"Added {args.updated.Count} elements\nPrefab pos: {instances[trackedImage].transform.position}\nImg pos: {trackedImage.transform.position}");
+            CanvasManager.current.SetText($"Updated {args.updated.Count} elements\nPrefab pos: {instances[trackedImage].transform.position}\nImg pos: {trackedImage.transform.position}\n" +
+                $"Offset pos:{offsetPrefabPosition}\nOffset rot: {offsetPrefabRotation}");
         }
     }
 
@@ -55,11 +62,13 @@ public class ImageTracker : MonoBehaviour
             switch (imageName)
             {
                 case "oui":
-                    instance.transform.localPosition = new Vector3(-0.2f, 0, 0);
+                    instance.transform.localPosition = offsetPrefabPosition;
+                    instance.transform.localEulerAngles = offsetPrefabRotation;
                     instance.GetComponent<Renderer>().material.color = Color.green;
                     break;
                 case "non":
-                    instance.transform.localPosition = new Vector3(0.2f, 0, 0);
+                    instance.transform.localPosition = offsetPrefabPosition;
+                    instance.transform.localEulerAngles = offsetPrefabRotation;
                     instance.GetComponent<Renderer>().material.color = Color.red;
                     break;
                 default:
@@ -69,27 +78,25 @@ public class ImageTracker : MonoBehaviour
         }
     }
 
-    private GameObject GetPrefabForImage(string imageName)
-    {
-        switch (imageName)
-        {
-            case "oui":
-                prefab.transform.position = new Vector3(0,0.2f,0);
-                prefab.GetComponent<Renderer>().material.color = Color.green;
-                break;
-            case "non":
-                prefab.transform.position = new Vector3(0.2f,0,0);
-                prefab.GetComponent<Renderer>().material.color = Color.red;
-                break;
-            default:
-                prefab.transform.position = Vector3.zero;
-                break;
-        }
-
-        return prefab;
-    }
-
     void UpdatePrefabPosition(ARTrackedImage trackedImage)
     {
+    }
+
+    public void OnSliderPositionChanged()
+    {
+        offsetPrefabPosition = new Vector3(sliders[0].value, sliders[1].value, sliders[2].value);
+        foreach (var instance in instances.Values)
+        {
+            instance.transform.position = offsetPrefabPosition;
+        }
+    }
+
+    public void OnSliderRotationChanged()
+    {
+        offsetPrefabRotation = new Vector3(sliders[3].value, sliders[4].value, sliders[5].value);
+        foreach (var instance in instances.Values)
+        {
+            instance.transform.localEulerAngles = offsetPrefabRotation;
+        }
     }
 }
