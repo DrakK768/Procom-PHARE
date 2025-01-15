@@ -1,62 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
-public class TimeChangeManager : MonoBehaviour
+public class TimeChangeManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    private float pressTime = 0;
+    public GameObject menu;
+    public TextMeshProUGUI text;
+    public GameObject mainBtn ;
+
+    private bool down = false;
+    private bool up = false;
     void Update()
     {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)
-            {
-                
-            }
-            
-        }
+        TapOrLongTouch();
     }
 
-  float pressTime = 0;
-
-void TapOrLongTouch()
+private void TapOrLongTouch()
 {
-    if (Input.touchCount <= 0) return;
+    if (!down ) return;
+    pressTime += Time.deltaTime;
+    if (pressTime > 1.5f) {
+        down = false;
+        up = false;
+        menu.SetActive(true);
+        mainBtn.SetActive(false);
+        pressTime = 0;
+    }
     
-    var touch = Input.GetTouch(0);
-
-    switch(touch.phase)
-    {
-        // Maybe you also want to reset when the touch was moved?
-        //case TouchPhase.Moved:
-        case TouchPhase.Began:
-            pressTime = 0;
-            break;
-
-        case TouchPhase.Stationary:
-            pressTime += Time.deltaTime;
-            break;
-
-        case TouchPhase.Ended:
-        case TouchPhase.Canceled:
-            if (pressTime < 0.5f)
-            {
-                //Do something;
-            }
-            else 
-            {
-                //Do something;
-            }
-            pressTime = 0;
-            break;
+    if(up){
+        text.text = (int.Parse(text.text)+1).ToString();
+        down = false;
+        up = false;
+        pressTime = 0;
+        //Change to next year
     }
 }
+
+public void changeTime(int year)
+{
+    text.text = year.ToString();
+    menu.SetActive(false);
+    mainBtn.SetActive(true);
+    //change to selected year
+}
+
+
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        down = true;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        up = true;
+    }
 }
