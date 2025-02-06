@@ -1773,6 +1773,54 @@ RectTransform:
   m_AnchoredPosition: {x: 200, y: -323.75}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &432299411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 432299413}
+  - component: {fileID: 432299412}
+  m_Layer: 0
+  m_Name: YearManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &432299412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432299411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb19841475602142bdb639cdf412f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listOfYears: a4060000080700006c0700009e070000d0070000
+  updateYear:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &432299413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432299411}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 234.72682, y: 129.04037, z: -3.5765998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &438515793
 GameObject:
   m_ObjectHideFlags: 0
@@ -4747,6 +4795,7 @@ MonoBehaviour:
   menu: {fileID: 1667622365}
   text: {fileID: 1892951795}
   mainBtn: {fileID: 1486558206}
+  yearManager: {fileID: 432299412}
 --- !u!1 &1539288831
 GameObject:
   m_ObjectHideFlags: 0
@@ -6094,6 +6143,7 @@ GameObject:
   - component: {fileID: 1846901238}
   - component: {fileID: 1846901237}
   - component: {fileID: 1846901236}
+  - component: {fileID: 1846901239}
   m_Layer: 5
   m_Name: Screenshot Btn
   m_TagString: Untagged
@@ -6163,7 +6213,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1846901237}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1846901239}
+        m_TargetAssemblyTypeName: TakeScreenshot, Assembly-CSharp
+        m_MethodName: OnClickScreenCaptureButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1846901237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6202,6 +6264,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846901234}
   m_CullTransparentMesh: 1
+--- !u!114 &1846901239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846901234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa767a4797e13504c83e40cd049e2826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 563080929}
 --- !u!1 &1892951793
 GameObject:
   m_ObjectHideFlags: 0
@@ -7108,3 +7183,4 @@ SceneRoots:
   - {fileID: 563080930}
   - {fileID: 292971787}
   - {fileID: 1952769631}
+  - {fileID: 432299413}
