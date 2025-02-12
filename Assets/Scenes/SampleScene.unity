@@ -2779,7 +2779,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &563080933
 Canvas:
   m_ObjectHideFlags: 0
@@ -6711,7 +6711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedLibrary: {fileID: 11400000, guid: 4d870a075a0391b4895e50f27d5098c0, type: 2}
   m_MaxNumberOfMovingImages: 0
-  m_TrackedImagePrefab: {fileID: 0}
+  m_TrackedImagePrefab: {fileID: 1566176709816718797, guid: 56fe2b1b831edded4b8fd72a27da06ff, type: 3}
 --- !u!1 &2107949003
 GameObject:
   m_ObjectHideFlags: 0
