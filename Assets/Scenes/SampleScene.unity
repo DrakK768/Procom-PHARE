@@ -507,7 +507,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1486558211}
         m_TargetAssemblyTypeName: TimeChangeManager, Assembly-CSharp
-        m_MethodName: changeTime
+        m_MethodName: onChangedYear
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -572,7 +572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &162103827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1802,10 +1802,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb19841475602142bdb639cdf412f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  year: 2000
   listOfYears: a4060000080700006c0700009e070000d0070000
   updateYear:
     m_PersistentCalls:
       m_Calls: []
+  debugText: {fileID: 162103827}
 --- !u!4 &432299413
 Transform:
   m_ObjectHideFlags: 0
@@ -1906,7 +1908,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1486558211}
         m_TargetAssemblyTypeName: TimeChangeManager, Assembly-CSharp
-        m_MethodName: changeTime
+        m_MethodName: onChangedYear
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2562,7 +2564,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1486558211}
         m_TargetAssemblyTypeName: TimeChangeManager, Assembly-CSharp
-        m_MethodName: changeTime
+        m_MethodName: onChangedYear
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2827,7 +2829,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &563080933
 Canvas:
   m_ObjectHideFlags: 0
@@ -3424,7 +3426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &893497990
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3605,7 +3607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1024707543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3814,7 +3816,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1486558211}
         m_TargetAssemblyTypeName: TimeChangeManager, Assembly-CSharp
-        m_MethodName: changeTime
+        m_MethodName: onChangedYear
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4059,7 +4061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1294428341
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4526,7 +4528,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1486558211}
         m_TargetAssemblyTypeName: TimeChangeManager, Assembly-CSharp
-        m_MethodName: changeTime
+        m_MethodName: onChangedYear
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4795,6 +4797,36 @@ MonoBehaviour:
   menu: {fileID: 1667622365}
   text: {fileID: 1892951795}
   mainBtn: {fileID: 1486558206}
+  yearChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 432299412}
+        m_TargetAssemblyTypeName: YearManager, Assembly-CSharp
+        m_MethodName: changeYear
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  yearChangeToNext:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 432299412}
+        m_TargetAssemblyTypeName: YearManager, Assembly-CSharp
+        m_MethodName: changeYearToNext
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   yearManager: {fileID: 432299412}
 --- !u!1 &1539288831
 GameObject:
@@ -6143,7 +6175,6 @@ GameObject:
   - component: {fileID: 1846901238}
   - component: {fileID: 1846901237}
   - component: {fileID: 1846901236}
-  - component: {fileID: 1846901239}
   m_Layer: 5
   m_Name: Screenshot Btn
   m_TagString: Untagged
@@ -6214,7 +6245,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1846901239}
+      - m_Target: {fileID: 1952769632}
         m_TargetAssemblyTypeName: TakeScreenshot, Assembly-CSharp
         m_MethodName: OnClickScreenCaptureButton
         m_Mode: 1
@@ -6264,19 +6295,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846901234}
   m_CullTransparentMesh: 1
---- !u!114 &1846901239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846901234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa767a4797e13504c83e40cd049e2826, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 563080929}
 --- !u!1 &1892951793
 GameObject:
   m_ObjectHideFlags: 0
@@ -6478,6 +6496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1952769631}
   - component: {fileID: 1952769630}
+  - component: {fileID: 1952769632}
   m_Layer: 0
   m_Name: Canvas Manager
   m_TagString: Untagged
@@ -6513,6 +6532,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1952769632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952769629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa767a4797e13504c83e40cd049e2826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 563080929}
 --- !u!1 &1967176816
 GameObject:
   m_ObjectHideFlags: 0
@@ -6564,7 +6596,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1982417169
 RectTransform:
   m_ObjectHideFlags: 0

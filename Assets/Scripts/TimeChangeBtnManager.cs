@@ -16,9 +16,9 @@ public class TimeChangeManager : MonoBehaviour, IPointerDownHandler, IPointerUpH
     public TextMeshProUGUI text;
     public GameObject mainBtn ;
 
-    private UnityEvent<int> yearChanged;
+    public UnityEvent<int> yearChanged;
 
-    private UnityEvent yearChangeToNext;
+    public UnityEvent yearChangeToNext;
 
     public YearManager yearManager;
 
@@ -29,6 +29,7 @@ public class TimeChangeManager : MonoBehaviour, IPointerDownHandler, IPointerUpH
     void Start()
     {
         yearManager.updateYear.AddListener(updateYear);
+        
         yearChanged.AddListener(yearManager.changeYear);
         yearChangeToNext.AddListener(yearManager.changeYearToNext);
     }
@@ -41,7 +42,7 @@ private void TapOrLongTouch()
 {
     if (!down ) return;
     pressTime += Time.deltaTime;
-    if (pressTime > 1.5f) {
+    if (pressTime > 1.2f) {
         down = false;
         up = false;
         menu.SetActive(true);
@@ -50,7 +51,6 @@ private void TapOrLongTouch()
     }
     
     if(up){
-        text.text = (int.Parse(text.text)+1).ToString();
         down = false;
         up = false;
         pressTime = 0;
