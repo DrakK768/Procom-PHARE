@@ -13,14 +13,24 @@ public class ImageTracker : MonoBehaviour
     [SerializeField] List<Slider> sliders = new List<Slider>();
 
     ARTrackedImageManager trackedImageManager;
-    Dictionary<ARTrackedImage, GameObject> instances;
+    GameObject instance;
 
     void Awake()
     {
         trackedImageManager = GetComponent<ARTrackedImageManager>();
-        instances = new Dictionary<ARTrackedImage, GameObject>();
     }
-    
+
+    void Start()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 30;
+        if (prefab != null)
+        {
+            instance = Instantiate(prefab);
+            instance.SetActive(false);
+        }
+    }
+
     void OnEnable()
     {
         if (trackedImageManager != null)
@@ -38,14 +48,14 @@ public class ImageTracker : MonoBehaviour
         foreach (var trackedImage in args.added)
         {
             PlacePrefab(trackedImage);
-            CanvasManager.current.SetText($"Added {args.added.Count} elements\nPrefab pos: {instances[trackedImage].transform.position}\nImg pos: {trackedImage.transform.position}\n" +
+            Debug.Log($"Added {args.added.Count} elements\nPrefab pos: {instance.transform.position}\nImg pos: {trackedImage.transform.position}\n" +
                 $"Offset pos:{offsetPrefabPosition}\nOffset rot: {offsetPrefabRotation}");
         }
-        
+
         foreach (var trackedImage in args.updated)
         {
             UpdatePrefabPosition(trackedImage);
-            CanvasManager.current.SetText($"Updated {args.updated.Count} elements\nPrefab pos: {instances[trackedImage].transform.position}\nImg pos: {trackedImage.transform.position}\n" +
+            Debug.Log($"Updated {args.updated.Count} elements\nPrefab pos: {instance.transform.position}\nImg pos: {trackedImage.transform.position}\n" +
                 $"Offset pos:{offsetPrefabPosition}\nOffset rot: {offsetPrefabRotation}");
         }
     }
@@ -53,23 +63,21 @@ public class ImageTracker : MonoBehaviour
     void PlacePrefab(ARTrackedImage trackedImage)
     {
         string imageName = trackedImage.referenceImage.name;
-        GameObject prefabToInstanciate = prefab;
-        if (prefabToInstanciate != null)
+        if (instance != null)
         {
-            GameObject instance = Instantiate(prefabToInstanciate, trackedImage.transform);
-            instances.Add(trackedImage, instance);
-
+            instance.transform.SetParent(trackedImage.transform, false);
+            instance.SetActive(true);
             switch (imageName)
             {
                 case "oui":
                     instance.transform.localPosition = offsetPrefabPosition;
                     instance.transform.localEulerAngles = offsetPrefabRotation;
-                    instance.GetComponent<Renderer>().material.color = Color.green;
+                    //instance.GetComponent<Renderer>().material.color = Color.green;
                     break;
                 case "non":
                     instance.transform.localPosition = offsetPrefabPosition;
                     instance.transform.localEulerAngles = offsetPrefabRotation;
-                    instance.GetComponent<Renderer>().material.color = Color.red;
+                    //instance.GetComponent<Renderer>().material.color = Color.red;
                     break;
                 default:
                     instance.transform.localPosition = Vector3.zero;
@@ -85,18 +93,12 @@ public class ImageTracker : MonoBehaviour
     public void OnSliderPositionChanged()
     {
         offsetPrefabPosition = new Vector3(sliders[0].value, sliders[1].value, sliders[2].value);
-        foreach (var instance in instances.Values)
-        {
-            instance.transform.position = offsetPrefabPosition;
-        }
+        instance.transform.position = offsetPrefabPosition;
     }
 
     public void OnSliderRotationChanged()
     {
         offsetPrefabRotation = new Vector3(sliders[3].value, sliders[4].value, sliders[5].value);
-        foreach (var instance in instances.Values)
-        {
-            instance.transform.localEulerAngles = offsetPrefabRotation;
-        }
+        instance.transform.localEulerAngles = offsetPrefabRotation;
     }
 }
