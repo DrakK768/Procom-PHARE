@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -14,8 +16,23 @@ public class TimeChangeManager : MonoBehaviour, IPointerDownHandler, IPointerUpH
     public TextMeshProUGUI text;
     public GameObject mainBtn ;
 
+    public UnityEvent<int> yearChanged;
+
+    public UnityEvent yearChangeToNext;
+
+    public YearManager yearManager;
+
+
     private bool down = false;
     private bool up = false;
+
+    void Start()
+    {
+        yearManager.updateYear.AddListener(updateYear);
+        
+        yearChanged.AddListener(yearManager.changeYear);
+        yearChangeToNext.AddListener(yearManager.changeYearToNext);
+    }
     void Update()
     {
         TapOrLongTouch();
@@ -25,7 +42,7 @@ private void TapOrLongTouch()
 {
     if (!down ) return;
     pressTime += Time.deltaTime;
-    if (pressTime > 1.5f) {
+    if (pressTime > 1.2f) {
         down = false;
         up = false;
         menu.SetActive(true);
@@ -34,23 +51,12 @@ private void TapOrLongTouch()
     }
     
     if(up){
-        text.text = (int.Parse(text.text)+1).ToString();
         down = false;
         up = false;
         pressTime = 0;
-        //Change to next year
+        yearChangeToNext?.Invoke();
     }
 }
-
-public void changeTime(int year)
-{
-    text.text = year.ToString();
-    menu.SetActive(false);
-    mainBtn.SetActive(true);
-    //change to selected year
-}
-
-
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -61,4 +67,16 @@ public void changeTime(int year)
     {
         up = true;
     }
+
+    private void updateYear(){
+        text.text = yearManager.year.ToString();
+    }
+
+
+    public void onChangedYear(int year)
+{
+    menu.SetActive(false);
+    mainBtn.SetActive(true);
+    yearChanged?.Invoke(year);
+}
 }
