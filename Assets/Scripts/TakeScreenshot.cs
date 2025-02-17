@@ -22,7 +22,7 @@ public class TakeScreenshot : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         // Take screenshot
-        ScreenCapture.CaptureScreenshot(DateTime.Now.ToString());
+        ScreenCapture.CaptureScreenshot(DateTime.Now.ToString()+".png");
         //TODO : change name of the captured screenshot
 
         // Show UI after we're done
