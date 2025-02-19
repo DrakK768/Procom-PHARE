@@ -64,12 +64,14 @@ public class ImageTracker : MonoBehaviour
                 case "oui":
                     instance.transform.localPosition = offsetPrefabPosition;
                     instance.transform.localEulerAngles = offsetPrefabRotation;
-                    instance.GetComponent<Renderer>().material.color = Color.green;
                     break;
                 case "non":
                     instance.transform.localPosition = offsetPrefabPosition;
                     instance.transform.localEulerAngles = offsetPrefabRotation;
-                    instance.GetComponent<Renderer>().material.color = Color.red;
+                    break;
+                case "poster":
+                    instance.transform.localPosition = offsetPrefabPosition;
+                    instance.transform.localEulerAngles = offsetPrefabRotation;
                     break;
                 default:
                     instance.transform.localPosition = Vector3.zero;

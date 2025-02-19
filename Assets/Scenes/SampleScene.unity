@@ -6794,7 +6794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e3aba41f65c1a4abc77ff9c5eefa60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 919132149155446097, guid: 4c08ec42e7d078f468f9ca6803deb9b1, type: 3}
+  prefab: {fileID: 9207146660762372904, guid: b56d36183cce0e943af8a5cd1a07f2b9, type: 3}
   offsetPrefabPosition: {x: 0, y: 0, z: 0}
   offsetPrefabRotation: {x: -90, y: 0, z: -180}
   sliders:
@@ -6818,7 +6818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedLibrary: {fileID: 11400000, guid: 4d870a075a0391b4895e50f27d5098c0, type: 2}
   m_MaxNumberOfMovingImages: 0
-  m_TrackedImagePrefab: {fileID: 1566176709816718797, guid: 56fe2b1b831edded4b8fd72a27da06ff, type: 3}
+  m_TrackedImagePrefab: {fileID: 0}
 --- !u!1 &2107949003
 GameObject:
   m_ObjectHideFlags: 0
