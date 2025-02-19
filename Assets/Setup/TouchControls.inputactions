@@ -1,0 +1,66 @@
+{
+    "name": "TouchControls",
+    "maps": [
+        {
+            "name": "Base",
+            "id": "cd5d7ed5-c7f6-4487-ac53-068b6853a116",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "e08aaf86-6651-4181-8283-2272646703e7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Zoom",
+                    "type": "Value",
+                    "id": "5cd83969-065c-4ae1-b333-62813ca1505e",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fec28864-b591-4700-a64d-9de76f015906",
+                    "path": "<Touchscreen>/primaryTouch/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TouchControls",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "269530c8-f691-4da5-aaba-a444a104f207",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "TouchControls",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "TouchControls",
+            "bindingGroup": "TouchControls",
+            "devices": [
+                {
+                    "devicePath": "<Touchscreen>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
