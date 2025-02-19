@@ -37,3 +37,13 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: non
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4743385134955500885
+      m_GuidHigh: 7203411530179515071
+    m_SerializedTextureGuid:
+      m_GuidLow: 6045708702829606512
+      m_GuidHigh: 11038129827719377705
+    m_Size: {x: 0.21, y: 0.29706994}
+    m_SpecifySize: 1
+    m_Name: poster
+    m_Texture: {fileID: 0}

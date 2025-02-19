@@ -507,7 +507,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1486558211}
         m_TargetAssemblyTypeName: TimeChangeManager, Assembly-CSharp
-        m_MethodName: changeTime
+        m_MethodName: onChangedYear
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1857,6 +1857,56 @@ RectTransform:
   m_AnchoredPosition: {x: 200, y: -323.75}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &432299411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 432299413}
+  - component: {fileID: 432299412}
+  m_Layer: 0
+  m_Name: YearManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &432299412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432299411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb19841475602142bdb639cdf412f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  year: 2000
+  listOfYears: a4060000080700006c0700009e070000d0070000
+  updateYear:
+    m_PersistentCalls:
+      m_Calls: []
+  debugText: {fileID: 162103827}
+--- !u!4 &432299413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432299411}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 234.72682, y: 129.04037, z: -3.5765998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &438515793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,7 +1992,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1486558211}
         m_TargetAssemblyTypeName: TimeChangeManager, Assembly-CSharp
-        m_MethodName: changeTime
+        m_MethodName: onChangedYear
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2598,7 +2648,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1486558211}
         m_TargetAssemblyTypeName: TimeChangeManager, Assembly-CSharp
-        m_MethodName: changeTime
+        m_MethodName: onChangedYear
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3850,7 +3900,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1486558211}
         m_TargetAssemblyTypeName: TimeChangeManager, Assembly-CSharp
-        m_MethodName: changeTime
+        m_MethodName: onChangedYear
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4095,7 +4145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1294428341
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4562,7 +4612,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1486558211}
         m_TargetAssemblyTypeName: TimeChangeManager, Assembly-CSharp
-        m_MethodName: changeTime
+        m_MethodName: onChangedYear
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4831,6 +4881,37 @@ MonoBehaviour:
   menu: {fileID: 1667622365}
   text: {fileID: 1892951795}
   mainBtn: {fileID: 1486558206}
+  yearChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 432299412}
+        m_TargetAssemblyTypeName: YearManager, Assembly-CSharp
+        m_MethodName: changeYear
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  yearChangeToNext:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 432299412}
+        m_TargetAssemblyTypeName: YearManager, Assembly-CSharp
+        m_MethodName: changeYearToNext
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  yearManager: {fileID: 432299412}
 --- !u!1 &1539288831
 GameObject:
   m_ObjectHideFlags: 0
@@ -6247,7 +6328,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1846901237}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1952769632}
+        m_TargetAssemblyTypeName: TakeScreenshot, Assembly-CSharp
+        m_MethodName: OnClickScreenCaptureButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1846901237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6487,6 +6580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1952769631}
   - component: {fileID: 1952769630}
+  - component: {fileID: 1952769632}
   m_Layer: 0
   m_Name: Canvas Manager
   m_TagString: Untagged
@@ -6522,6 +6616,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1952769632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952769629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa767a4797e13504c83e40cd049e2826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 563080929}
 --- !u!1 &1967176816
 GameObject:
   m_ObjectHideFlags: 0
@@ -6771,8 +6878,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e3aba41f65c1a4abc77ff9c5eefa60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 919132149155446097, guid: 4c08ec42e7d078f468f9ca6803deb9b1, type: 3}
-  offsetPrefabPosition: {x: 0, y: 0, z: 10}
+  prefab: {fileID: 9207146660762372904, guid: b56d36183cce0e943af8a5cd1a07f2b9, type: 3}
+  offsetPrefabPosition: {x: 0, y: 0, z: 0}
   offsetPrefabRotation: {x: -90, y: 0, z: -180}
   sliders:
   - {fileID: 1539288832}
@@ -7192,3 +7299,4 @@ SceneRoots:
   - {fileID: 563080930}
   - {fileID: 292971787}
   - {fileID: 1952769631}
+  - {fileID: 432299413}
