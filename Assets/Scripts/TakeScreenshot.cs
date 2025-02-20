@@ -21,8 +21,13 @@ public class TakeScreenshot : MonoBehaviour
         // Wait for screen rendering to complete
         yield return new WaitForEndOfFrame();
 
+        string data = DateTime.Now.ToString();
+        data = data.Replace("/", "_");
+        data = data.Replace(" ", "_");
+        data = data.Replace(":","_");
+
         // Take screenshot
-        ScreenCapture.CaptureScreenshot(DateTime.Now.ToString()+".png");
+        ScreenCapture.CaptureScreenshot(data+".png");
         //TODO : change name of the captured screenshot
 
         // Show UI after we're done
