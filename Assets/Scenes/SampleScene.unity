@@ -7141,6 +7141,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 162103827}
+  logo: {fileID: 1657357107}
+  screenshotBtn: {fileID: 1846901234}
+  timechangeBtn: {fileID: 1486558206}
+  timechangeMenu: {fileID: 1667622365}
 --- !u!4 &1952769631
 Transform:
   m_ObjectHideFlags: 0
