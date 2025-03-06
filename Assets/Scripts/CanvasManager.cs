@@ -10,13 +10,21 @@ public class CanvasManager : MonoBehaviour
     public static CanvasManager current;
 
     [SerializeField] TMP_Text textDisplay;
+    public GameObject text1;
+    public GameObject text2;
+    public GameObject text3;
+    public GameObject button;
 
-    public GameObject logo;
-    public GameObject screenshotBtn;
+    public GameObject refPos1;
+    public GameObject refPos2;
+    public GameObject refPos3;
+    public GameObject refPos4;
 
-    public GameObject timechangeBtn;
+    public GameObject refPosLand1;
+    public GameObject refPosLand2;
+    public GameObject refPosLand3;
+    public GameObject refPosLand4;
 
-    public GameObject timechangeMenu;
     void Awake()
     {
         current = this;
@@ -25,16 +33,16 @@ public class CanvasManager : MonoBehaviour
     void Update()
     {
         if (Screen.orientation == ScreenOrientation.Portrait){
-            logo.transform.localScale = new Vector3(1,1,1);
-            screenshotBtn.transform.localScale = new Vector3(1,1,1);
-            timechangeBtn.transform.localScale = new Vector3(1,1,1);
-            timechangeMenu.transform.localScale = new Vector3(1,1,1);      
+            text1.transform.localPosition = refPos1.transform.localPosition;
+            text2.transform.localPosition = refPos2.transform.localPosition;
+            text3.transform.localPosition = refPos3.transform.localPosition;
+            button.transform.localPosition = refPos4.transform.localPosition;
         }
         else {
-            logo.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
-            screenshotBtn.transform.localScale = new Vector3(0.7f,0.7f,0.7f);
-            timechangeBtn.transform.localScale = new Vector3(0.7f,0.7f,0.7f);
-            timechangeMenu.transform.localScale = new Vector3(0.7f,0.7f,0.7f);
+            text1.transform.localPosition = refPosLand1.transform.localPosition;
+            text2.transform.localPosition = refPosLand2.transform.localPosition;
+            text3.transform.localPosition = refPosLand3.transform.localPosition;
+            button.transform.localPosition = refPosLand4.transform.localPosition;
         }
     }
 
