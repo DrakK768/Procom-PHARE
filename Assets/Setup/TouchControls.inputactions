@@ -16,9 +16,9 @@
                 },
                 {
                     "name": "Zoom",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "5cd83969-065c-4ae1-b333-62813ca1505e",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Touch",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -38,8 +38,8 @@
                 },
                 {
                     "name": "",
-                    "id": "269530c8-f691-4da5-aaba-a444a104f207",
-                    "path": "",
+                    "id": "0c604e85-e1c5-4d29-8546-2a927ec23b30",
+                    "path": "<Touchscreen>/touch1",
                     "interactions": "",
                     "processors": "",
                     "groups": "TouchControls",
