@@ -5150,7 +5150,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Commencez par pointer votre t\xE9l\xE9phone sur le panneau introductif
-    et d\xE9marrez votre exploration du pass\xE9"
+    pour d\xE9marrer votre exploration du pass\xE9."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7590,7 +7590,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Un guide d'utilisation est disponible dans le menu en haut \xE0 gauche
-    de l'\xE9cran"
+    de l'\xE9cran."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8285,7 +8285,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Bienvenue au petit minou. Plongez dans l'histoire de ce lieux grace \xE0
+  m_text: "Bienvenue au petit minou. Plongez dans l'histoire de ce lieu grace \xE0
     votre t\xE9l\xE9phone!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
