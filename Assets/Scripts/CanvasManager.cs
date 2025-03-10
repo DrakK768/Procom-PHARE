@@ -6,6 +6,8 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 
 public class CanvasManager : MonoBehaviour
+//Description : script to change position of text accord to the screen orientation
+//Currently, it's a "bruteforce" way to do it, please don't mind it
 {
     public static CanvasManager current;
 

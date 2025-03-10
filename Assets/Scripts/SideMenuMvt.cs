@@ -1,20 +1,19 @@
 using UnityEngine;
 
 public class SideMenuMvt : MonoBehaviour
+// Description : Script to make the side menu (menuPannel) move between its hidden position to its active position
 {
 
     public GameObject menuHiddenPos;
     public GameObject menuActivePos;
     public GameObject menuPannel;
 
-    public float speed;
+    public float speed; //pannel's movement speed
 
     private bool mvt_active;
     private bool mvt_hidden;
     private float tempPos;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         mvt_active = false;
@@ -23,8 +22,8 @@ public class SideMenuMvt : MonoBehaviour
         tempPos = -999999999999.99f;
     }
 
-    // Update is called once per frame
-    void Update()
+     void Update()
+     //Using Lerp to move the pannel and have a smooth movement until it doesn't move anymore
     {
         if (mvt_active) {
             menuPannel.transform.position = Vector3.Lerp(menuPannel.transform.position, menuActivePos.transform.position,speed = Time.deltaTime);

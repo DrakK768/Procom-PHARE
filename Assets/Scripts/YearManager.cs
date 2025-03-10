@@ -4,8 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class YearManager : MonoBehaviour
-{
+public class YearManager : MonoBehaviour {
+// Description : Script to manage the year, can be use to implement a changing model according to the year set
     public int year = 2000;
     private int i = -1;
 
@@ -13,18 +13,10 @@ public class YearManager : MonoBehaviour
 
     public UnityEvent updateYear;
 
-    public  TextMeshProUGUI debugText;
-
-    void Start()
-    {
-        //updateYear.AddListener(debug); 
-    }
-
 
     public void changeYear(int year){
 
         this.year = year;
-        debugText.text = "menu ok";
         updateYear?.Invoke();
 
     }
@@ -32,12 +24,7 @@ public class YearManager : MonoBehaviour
     public void changeYearToNext(){
         i=(i+1)%listOfYears.Count;
         year = listOfYears[i];
-        debugText.text = "tap ok";
         updateYear?.Invoke();
-    }
-    
-    public void debug(){
-        debugText.text = "event ok";
     }
 
 }

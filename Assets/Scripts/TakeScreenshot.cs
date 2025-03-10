@@ -5,17 +5,17 @@ using UnityEngine;
 
 
 public class TakeScreenshot : MonoBehaviour
+//Description : Script to take a screenshot of the app without the UI and save it in the phone's gallery
 {
 
     public GameObject canvas;
 
-// Example code doesn't use this function but it is here for reference. It's recommended to ask for permissions manually using the
-// RequestPermissionAsync methods prior to calling NativeGallery functions
-private async void RequestPermissionAsynchronously( NativeGallery.PermissionType permissionType, NativeGallery.MediaType mediaTypes )
-{
-	NativeGallery.Permission permission = await NativeGallery.RequestPermissionAsync( permissionType, mediaTypes );
-	Debug.Log( "Permission result: " + permission );
-}
+    private async void RequestPermissionAsynchronously( NativeGallery.PermissionType permissionType, NativeGallery.MediaType mediaTypes )
+    //Get permission to save to gallery
+    {
+        NativeGallery.Permission permission = await NativeGallery.RequestPermissionAsync( permissionType, mediaTypes );
+        Debug.Log( "Permission result: " + permission );
+    }
     public void OnClickScreenCaptureButton()
     {
         StartCoroutine(CaptureScreen());
