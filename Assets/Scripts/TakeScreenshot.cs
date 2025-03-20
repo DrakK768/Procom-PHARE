@@ -9,6 +9,7 @@ public class TakeScreenshot : MonoBehaviour
 {
 
     public GameObject canvas;
+    private string album = "Pictures";
 
     private async void RequestPermissionAsynchronously( NativeGallery.PermissionType permissionType, NativeGallery.MediaType mediaTypes )
     //Get permission to save to gallery
@@ -43,7 +44,7 @@ public class TakeScreenshot : MonoBehaviour
 	    temp.Apply();
 
 	    // Save the screenshot to Gallery/Photos
-	    NativeGallery.Permission permission = NativeGallery.SaveImageToGallery( temp, "Pictures", data, ( success, path ) => Debug.Log( "Media save result: " + success + " " + path ) );
+	    NativeGallery.Permission permission = NativeGallery.SaveImageToGallery( temp, album, data, ( success, path ) => Debug.Log( "Media save result: " + success + " " + path ) );
 
 	    Debug.Log( "Permission result: " + permission );
 

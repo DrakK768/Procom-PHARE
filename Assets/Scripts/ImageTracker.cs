@@ -12,6 +12,9 @@ public class ImageTracker : MonoBehaviour
 
     [SerializeField] List<Slider> sliders = new List<Slider>();
 
+    public GameObject startMenu ;
+    public GameObject sideMenuButton;
+
     ARTrackedImageManager trackedImageManager;
     Dictionary<ARTrackedImage, GameObject> instances;
 
@@ -35,6 +38,8 @@ public class ImageTracker : MonoBehaviour
     
     void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs args)
     {
+        startMenu.SetActive(false);
+        sideMenuButton.SetActive(true);
         foreach (var trackedImage in args.added)
         {
             PlacePrefab(trackedImage);
