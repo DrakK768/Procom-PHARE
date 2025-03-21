@@ -8,9 +8,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-public class TimeChangeManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
-{
-
+public class TimeChangeManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
+// Description : Script to manage the Time Changer button and its menu
     private float pressTime = 0;
     public GameObject menu;
     public TextMeshProUGUI text;
@@ -29,7 +28,6 @@ public class TimeChangeManager : MonoBehaviour, IPointerDownHandler, IPointerUpH
     void Start()
     {
         yearManager.updateYear.AddListener(updateYear);
-        
         yearChanged.AddListener(yearManager.changeYear);
         yearChangeToNext.AddListener(yearManager.changeYearToNext);
     }
@@ -39,10 +37,11 @@ public class TimeChangeManager : MonoBehaviour, IPointerDownHandler, IPointerUpH
     }
 
 private void TapOrLongTouch()
+// Check wheter the time button was tapped or long touched, then call the according function
 {
     if (!down ) return;
     pressTime += Time.deltaTime;
-    if (pressTime > 1.2f) {
+    if (pressTime > 1.2f) { //long press
         down = false;
         up = false;
         menu.SetActive(true);
@@ -50,7 +49,7 @@ private void TapOrLongTouch()
         pressTime = 0;
     }
     
-    if(up){
+    if(up){ //tap
         down = false;
         up = false;
         pressTime = 0;

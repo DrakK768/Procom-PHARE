@@ -25,6 +25,9 @@ public class ImageTracker : MonoBehaviour
 
     public static ImageTracker current;
 
+    public GameObject startMenu ;
+    public GameObject sideMenuButton;
+
     ARTrackedImageManager trackedImageManager;
     GameObject instanceGardien;
     GameObject instanceHotel;
@@ -81,6 +84,8 @@ public class ImageTracker : MonoBehaviour
 
     void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs args)
     {
+        startMenu.SetActive(false);
+        sideMenuButton.SetActive(true);
         foreach (var trackedImage in args.added)
         {
             PlacePrefab(trackedImage);
