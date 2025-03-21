@@ -8886,18 +8886,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e3aba41f65c1a4abc77ff9c5eefa60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 9207146660762372904, guid: b56d36183cce0e943af8a5cd1a07f2b9, type: 3}
-  offsetPrefabPosition: {x: 0, y: -0.7, z: 5}
-  offsetPrefabRotation: {x: -180, y: 0, z: -175}
-  sliders:
-  - {fileID: 1539288832}
-  - {fileID: 419274922}
-  - {fileID: 2121270748}
-  - {fileID: 599020905}
-  - {fileID: 1349976440}
-  - {fileID: 1399574284}
+  gardienPrefab: {fileID: 3445062842530670025, guid: 24213ecf8d332ea0dae7359ca1e55578, type: 3}
+  hotelPrefab: {fileID: 3445062842530670025, guid: 24213ecf8d332ea0dae7359ca1e55578, type: 3}
+  posterOffsetPrefabPosition: {x: 0, y: 0.2, z: 1}
+  posterOffsetPrefabRotation: {x: 0, y: 180, z: 0}
+  posterHotel: 0
+  poster2OffsetPrefabPosition: {x: 0, y: 0, z: 0}
+  poster2OffsetPrefabRotation: {x: 0, y: 0, z: 0}
+  poster2Hotel: 0
+  poster3OffsetPrefabPosition: {x: 0, y: 0, z: 0}
+  poster3OffsetPrefabRotation: {x: 0, y: 0, z: 0}
+  poster3Hotel: 0
   startMenu: {fileID: 2025941488}
   sideMenuButton: {fileID: 1534291560}
+  currentInstance: {fileID: 0}
+  arCamera: {fileID: 0}
 --- !u!114 &2056602822
 MonoBehaviour:
   m_ObjectHideFlags: 0
