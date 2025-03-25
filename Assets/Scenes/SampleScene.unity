@@ -6052,7 +6052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1534291561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8482,16 +8482,10 @@ MonoBehaviour:
   textDisplay: {fileID: 162103827}
   text1: {fileID: 1788229334}
   text2: {fileID: 1154154558}
-  text3: {fileID: 0}
-  button: {fileID: 0}
   refPos1: {fileID: 534811315}
   refPos2: {fileID: 2061490656}
-  refPos3: {fileID: 0}
-  refPos4: {fileID: 0}
   refPosLand1: {fileID: 271498886}
   refPosLand2: {fileID: 1043358537}
-  refPosLand3: {fileID: 0}
-  refPosLand4: {fileID: 0}
 --- !u!4 &1952769631
 Transform:
   m_ObjectHideFlags: 0
@@ -8886,19 +8880,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e3aba41f65c1a4abc77ff9c5eefa60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gardienPrefab: {fileID: 3445062842530670025, guid: 24213ecf8d332ea0dae7359ca1e55578, type: 3}
-  hotelPrefab: {fileID: 3445062842530670025, guid: 24213ecf8d332ea0dae7359ca1e55578, type: 3}
+  gardienPrefab: {fileID: 9207146660762372904, guid: b56d36183cce0e943af8a5cd1a07f2b9, type: 3}
+  hotelPrefab: {fileID: 1590401766224743711, guid: f6710759ecada1fe69dc35f2c21c0438, type: 3}
   posterOffsetPrefabPosition: {x: 0, y: 0.2, z: 1}
-  posterOffsetPrefabRotation: {x: 0, y: 180, z: 0}
+  posterOffsetPrefabRotation: {x: 90, y: 0, z: 0}
   posterHotel: 0
-  poster2OffsetPrefabPosition: {x: 0, y: 0, z: 0}
-  poster2OffsetPrefabRotation: {x: 0, y: 0, z: 0}
-  poster2Hotel: 0
+  poster2OffsetPrefabPosition: {x: 2, y: 15, z: -3}
+  poster2OffsetPrefabRotation: {x: 0, y: 90, z: 90}
+  poster2Hotel: 1
   poster3OffsetPrefabPosition: {x: 0, y: 0, z: 0}
   poster3OffsetPrefabRotation: {x: 0, y: 0, z: 0}
   poster3Hotel: 0
   startMenu: {fileID: 2025941488}
   sideMenuButton: {fileID: 1534291560}
+  bottomPannel: {fileID: 353571028}
   currentInstance: {fileID: 0}
   arCamera: {fileID: 0}
 --- !u!114 &2056602822

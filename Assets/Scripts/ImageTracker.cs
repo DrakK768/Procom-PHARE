@@ -17,7 +17,7 @@ public class ImageTracker : MonoBehaviour
     [Header("'poster2' position")]
     [SerializeField] Vector3 poster2OffsetPrefabPosition = Vector3.zero;
     [SerializeField] Vector3 poster2OffsetPrefabRotation = Vector3.zero;
-    [SerializeField] bool poster2Hotel = false;
+    [SerializeField] bool poster2Hotel = true;
     [Header("'poster3' position")]
     [SerializeField] Vector3 poster3OffsetPrefabPosition = Vector3.zero;
     [SerializeField] Vector3 poster3OffsetPrefabRotation = Vector3.zero;
@@ -27,6 +27,7 @@ public class ImageTracker : MonoBehaviour
 
     public GameObject startMenu ;
     public GameObject sideMenuButton;
+    public GameObject bottomPannel;
 
     ARTrackedImageManager trackedImageManager;
     GameObject instanceGardien;
@@ -86,6 +87,7 @@ public class ImageTracker : MonoBehaviour
     {
         startMenu.SetActive(false);
         sideMenuButton.SetActive(true);
+        bottomPannel.SetActive(true);
         foreach (var trackedImage in args.added)
         {
             PlacePrefab(trackedImage);
@@ -125,7 +127,7 @@ public class ImageTracker : MonoBehaviour
 
     void SetInstance(bool hotel, Vector3 position, Vector3 rotation, ARTrackedImage parent)
     {
-        GameObject instance = (hotel ? instanceHotel : instanceGardien);
+        GameObject instance = hotel ? instanceHotel : instanceGardien;
         if (instance != null)
         {
             instance.transform.SetParent(parent.transform, false);
