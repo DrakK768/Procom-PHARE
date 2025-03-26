@@ -4214,7 +4214,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -490, y: -910}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &893497991
@@ -4530,7 +4530,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 490, y: -910}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1024707544
@@ -8880,13 +8880,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e3aba41f65c1a4abc77ff9c5eefa60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gardienPrefab: {fileID: 9207146660762372904, guid: b56d36183cce0e943af8a5cd1a07f2b9, type: 3}
-  hotelPrefab: {fileID: 1590401766224743711, guid: f6710759ecada1fe69dc35f2c21c0438, type: 3}
-  posterOffsetPrefabPosition: {x: 0, y: 0.2, z: 1}
-  posterOffsetPrefabRotation: {x: 90, y: 0, z: 0}
+  gardienPrefab: {fileID: 2163693795578699479, guid: cc190cecb2301beb2a9289dd267e525c, type: 3}
+  hotelPrefab: {fileID: 1932025379278666337, guid: 10ca036d5bb4308838220ed9deeca3bb, type: 3}
+  posterOffsetPrefabPosition: {x: 1.27, y: 3.52, z: -1.77}
+  posterOffsetPrefabRotation: {x: 288.82, y: 270, z: 270}
   posterHotel: 0
-  poster2OffsetPrefabPosition: {x: 2, y: 15, z: -3}
-  poster2OffsetPrefabRotation: {x: 0, y: 90, z: 90}
+  poster2OffsetPrefabPosition: {x: 8, y: 15, z: -4.5}
+  poster2OffsetPrefabRotation: {x: 90, y: -45, z: -45}
   poster2Hotel: 1
   poster3OffsetPrefabPosition: {x: 0, y: 0, z: 0}
   poster3OffsetPrefabRotation: {x: 0, y: 0, z: 0}

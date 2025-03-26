@@ -25,7 +25,7 @@ public class ImageTracker : MonoBehaviour
 
     public static ImageTracker current;
 
-    public GameObject startMenu ;
+    public GameObject startMenu;
     public GameObject sideMenuButton;
     public GameObject bottomPannel;
 
@@ -71,7 +71,7 @@ public class ImageTracker : MonoBehaviour
         if (trackedImageManager != null)
             trackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
     }
-    
+
     void OnDisable()
     {
         if (trackedImageManager != null)
@@ -91,15 +91,15 @@ public class ImageTracker : MonoBehaviour
         foreach (var trackedImage in args.added)
         {
             PlacePrefab(trackedImage);
-            //Debug.Log($"Added {args.added.Count} elements\nPrefab pos: {instanceGardien.transform.position}\nImg pos: {trackedImage.transform.position}\n" +
-            //    $"Offset pos:{posterOffsetPrefabPosition}\nOffset rot: {posterOffsetPrefabRotation}");
+            Debug.Log($"Added {args.added.Count} elements\nPrefab pos: {currentInstance.transform.localPosition}\nPrefab rot: {currentInstance.transform.localEulerAngles}\nImg pos: {trackedImage.transform.position}\n" +
+               $"Offset pos:{posterOffsetPrefabPosition}\nOffset rot: {posterOffsetPrefabRotation}");
         }
 
         foreach (var trackedImage in args.updated)
         {
             UpdatePrefabPosition(trackedImage);
-            //Debug.Log($"Updated {args.updated.Count} elements\nPrefab pos: {instanceGardien.transform.position}\nImg pos: {trackedImage.transform.position}\n" +
-            //    $"Offset pos:{posterOffsetPrefabPosition}\nOffset rot: {posterOffsetPrefabRotation}");
+            Debug.Log($"Updated {args.updated.Count} elements\nPrefab pos: {currentInstance.transform.localPosition}\nPrefab rot: {currentInstance.transform.localEulerAngles}\nImg pos: {trackedImage.transform.position}\n" +
+               $"Offset pos:{posterOffsetPrefabPosition}\nOffset rot: {posterOffsetPrefabRotation}");
         }
     }
 
