@@ -45,6 +45,8 @@ public class ImageTracker : MonoBehaviour
 
     void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         XROrigin sessionOrigin = FindObjectOfType<XROrigin>();
         if (sessionOrigin != null)
         {
